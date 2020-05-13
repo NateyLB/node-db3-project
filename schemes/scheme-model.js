@@ -43,9 +43,9 @@ function remove(id){
 }
 //adds a step
 function addStep(step, scheme_id){
-    return db("steps")
-    .insert(step)
+    return db("steps",)
+    .insert(step, "id")
     .then(ids=>{
-        return findSteps(scheme_id)
+        return findSteps(scheme_id).where("steps.id", ids[0])
     })
 }
