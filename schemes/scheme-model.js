@@ -22,7 +22,7 @@ function findSteps(id){
     return db("schemes")
     .join("steps", "schemes.id", "=", "steps.scheme_id")
     .select("steps.id", "schemes.scheme_name","steps.step_number", "steps.instructions")
-    .where("scheme_id", id)
+    .where("steps.scheme_id", id)
     .orderBy("step_number")
 }
 //added a new scheme to the scheme table, resolves to the added scheme
